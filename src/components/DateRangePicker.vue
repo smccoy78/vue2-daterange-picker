@@ -18,7 +18,7 @@
         :endDate="end"
         :ranges="ranges"
       >
-        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+        <font-awesome-icon icon="calendar"/>&nbsp;
         <span>{{rangeText}}</span>
         <b class="caret"></b>
       </slot>
@@ -77,7 +77,7 @@
               <div class="daterangepicker_input d-none d-sm-block" v-if="false">
                 <input class="input-mini form-control" type="text" name="daterangepicker_start"
                        :value="startText"/>
-                <i class="fa fa-calendar glyphicon glyphicon-calendar"></i>
+                <font-awesome-icon icon="calendar"/>
               </div>
               <div class="calendar-table">
                 <calendar :monthDate="monthDate"
@@ -106,7 +106,7 @@
               <div class="daterangepicker_input" v-if="false">
                 <input class="input-mini form-control" type="text" name="daterangepicker_end"
                        :value="endText"/>
-                <i class="fa fa-calendar glyphicon glyphicon-calendar"></i>
+                <font-awesome-icon icon="calendar"/>
               </div>
               <div class="calendar-table">
                 <calendar :monthDate="nextMonthDate"
@@ -178,11 +178,15 @@
   import CalendarTime from './CalendarTime'
   import CalendarRanges from './CalendarRanges'
   import {getDateUtil} from './util'
+  import { library } from '@fortawesome/fontawesome-svg-core'
+  import { faCalendar } from '@fortawesome/free-solid-svg-icons'
+  import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+  library.add(faCalendar)
   import appendToBody from '../directives/appendToBody';
 
   export default {
     inheritAttrs: false,
-    components: {Calendar, CalendarTime, CalendarRanges},
+    components: {FontAwesomeIcon, Calendar, CalendarTime, CalendarRanges},
     mixins: [dateUtilMixin],
     directives: {appendToBody},
     model: {
